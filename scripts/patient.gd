@@ -1,13 +1,15 @@
 extends AnimatedSprite2D
 
-# 0 - 255
-var red = 1
-var green = 1
-var blue = 1
+var currentColor = Color(1, 1, 1)
+var layers = 0
 
-func layerColor(r, g, b):
-	red += r
-	green += g
-	blue += b
-	
-	modulate = Color(red, green, blue)
+func layerColor(mColor):
+	layers += 1
+	currentColor += mColor
+	modulate = ( currentColor / layers) * 1.5
+	print(modulate)
+
+func reset():
+	layers = 0
+	currentColor = Color(1, 1, 1)
+	modulate = currentColor

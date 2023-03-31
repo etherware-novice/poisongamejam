@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://7ckoiqkd3rug"]
+[gd_scene load_steps=6 format=3 uid="uid://7ckoiqkd3rug"]
 
 [ext_resource type="Texture2D" uid="uid://cv85bmfxveq2f" path="res://icon.svg" id="1_2s1sc"]
+[ext_resource type="Script" path="res://scripts/main_game_loop.gd" id="1_nde14"]
 [ext_resource type="Script" path="res://scripts/patient.gd" id="2_6ndxa"]
-[ext_resource type="Script" path="res://itembag.gd" id="2_8vu8v"]
+[ext_resource type="Script" path="res://scripts/itembag.gd" id="4_51ai2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gfa6j"]
 animations = [{
@@ -16,6 +17,7 @@ animations = [{
 }]
 
 [node name="MainGameLoop" type="Node2D"]
+script = ExtResource("1_nde14")
 
 [node name="patient" type="AnimatedSprite2D" parent="."]
 position = Vector2(902, 400)
@@ -29,8 +31,6 @@ offset_top = 116.0
 offset_right = 454.0
 offset_bottom = 616.0
 theme_override_font_sizes/font_size = 28
-item_count = 1
-item_0/text = "Red"
-script = ExtResource("2_8vu8v")
+script = ExtResource("4_51ai2")
 
 [connection signal="item_clicked" from="itembag" to="itembag" method="_on_item_clicked"]
