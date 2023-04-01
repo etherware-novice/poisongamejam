@@ -1,15 +1,24 @@
 extends AnimatedSprite2D
 
-var currentColor = Color(1, 1, 1)
-var layers = 0
+var curColor = 0
+var goalColor = 1
+
+signal complete
+
+func _ready():
+	return
+
 
 func layerColor(mColor):
-	layers += 1
-	currentColor += mColor
-	modulate = ( currentColor / layers) * 1.5
-	print(modulate)
+	curColor = constants.colorMixIndex(curColor, mColor)
+	checkComplete()
 
 func reset():
-	layers = 0
-	currentColor = Color(1, 1, 1)
-	modulate = currentColor
+	curColor = 0
+	checkComplete()
+
+
+func checkComplete():
+	modulate = constants.renderColor[curColor] * 1.5
+	if curColor == goalColor:
+		emit_signal("complete")

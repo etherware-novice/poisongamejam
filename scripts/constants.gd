@@ -1,35 +1,29 @@
 extends Node
 
-var colors = {
-		"Red" = Color(2, 0, 0),
-		"Orange" = Color(2, 1, 0),
-		"Yellow" = Color(2, 2, 0),
-		"Green" = Color(0, 2, 0),
-		"Blue" = Color(0, 0, 2),
-		"Purple" = Color(2, 0, 2),
-		"Reset" = -1
-	}
-
-var itemId = [
-	["Bleach", null, null, true],
-	["Red Dye", null, colors["Red"], false],
-	["Red Paint", null, colors["Red"], true],
-	["Orange Dye", null, colors["Orange"], false],
-	["Orange Paint", null, colors["Orange"], true],
-	["Yellow Dye", null, colors["Yellow"], false],
-	["Yellow Paint", null, colors["Yellow"], true],
-	["Green Dye", null, colors["Green"], false],
-	["Green Paint", null, colors["Green"], true],
-	["Blue Dye", null, colors["Blue"], false],
-	["Blue Paint", null, colors["Blue"], true],
-	["Purple Dye", null, colors["Purple"], false],
-	["Purple Paint", null, colors["Purple"], true],
+# first entry is which entry this will become when red is addded, then green, blue
+var colorsMixIndex = [
+	[1, 4, 6], 	# white -> 	red, green, blue
+	[1, 8, 7],	# red ->	red, brown, violet
+	[1, 3, 8],	# orange ->	red, yellow, brown
+	[2, 4, 4],	# yellow -> orange, green, green
+	[8, 4, 5],	# green -> 	brown, green, greenblue
+	[8, 4, 6],	# grblue ->	brown, green, blue
+	[7, 4, 5],	# blue ->	violet, green, greenblue
+	[1, 8, 6],	# violet ->	red, brown, blue
+	[1, 4, 6]	# brown ->	red, green, blue
 ]
 
-func getItem(id):
-	if id > itemId.size() - 1:
-		id = 0
-	var itemInfo = itemId[id]
-	var retr = colorItem.new(itemInfo[0], itemInfo[1], itemInfo[2], itemInfo[3])
-	retr.id = id
-	return retr
+func colorMixIndex(current, rgbindex):
+	if rgbindex > 2:
+		return 0
+	return colorsMixIndex[current][rgbindex]
+	
+var colorID = [
+	"White", "Red", "Orange", "Yellow", "Green", "GreenBlue", "Blue", "Violet",
+	"Brown"
+]
+
+var renderColor = [
+	Color(0, 0, 0), Color.RED, Color.ORANGE, Color.YELLOW, Color.GREEN, Color.LIGHT_SEA_GREEN, 
+	Color.BLUE, Color.DARK_VIOLET, Color.BROWN
+]

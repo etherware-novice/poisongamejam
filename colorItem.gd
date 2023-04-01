@@ -3,6 +3,8 @@ class_name colorItem extends baseItem
 var color
 var force
 
+
+
 # color: a Color object that determines what is added
 # force: bool that overrides the color instead of multiplying
 func _init(name, icon, color, force):
