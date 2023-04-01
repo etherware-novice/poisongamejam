@@ -5,6 +5,7 @@ func _ready():
 	startRound()
 
 func startRound():
+	player.cutsceneLock = false
 	randomize()
 	var startingColor = randi() % constants.colorID.size()
 	var goalColor = startingColor
@@ -23,7 +24,15 @@ func _process(delta):
 
 
 func _on_patient_complete():
+	player.cutsceneLock = true
 	print("you did it")
 	$status.text = "Good Job!"
+	await get_tree().create_timer(3).timeout
+	startRound()
+
+
+func _on_patient_skipped():
+	player.cutsceneLock = true
+	$status.text = "Skipping.."
 	await get_tree().create_timer(3).timeout
 	startRound()

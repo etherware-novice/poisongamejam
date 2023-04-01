@@ -1,7 +1,8 @@
 extends Node
 
-# red dye, green dye, blue dye, bleach
-var inventory = [5, 5, 5, 1]
+# red dye, green dye, blue dye, bleach, skips
+var inventory = [5, 5, 5, 1, 3]
+var cutsceneLock
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

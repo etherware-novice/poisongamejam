@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://7ckoiqkd3rug"]
+[gd_scene load_steps=8 format=3 uid="uid://7ckoiqkd3rug"]
 
 [ext_resource type="Texture2D" uid="uid://cv85bmfxveq2f" path="res://icon.svg" id="1_2s1sc"]
 [ext_resource type="Script" path="res://scripts/main_game_loop.gd" id="1_nde14"]
 [ext_resource type="Script" path="res://scripts/patient.gd" id="2_6ndxa"]
+[ext_resource type="Texture2D" uid="uid://ui1b1rbipwf2" path="res://art/patient_human0000.png" id="3_c5mcm"]
 [ext_resource type="Script" path="res://scripts/itembag.gd" id="4_51ai2"]
+[ext_resource type="Texture2D" uid="uid://dn13ooxw267yq" path="res://art/patient_human-001.png" id="4_rbddg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gfa6j"]
 animations = [{
@@ -14,6 +16,17 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_c5mcm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_rbddg")
+}],
+"loop": true,
+"name": &"human",
+"speed": 2.0
 }]
 
 [node name="MainGameLoop" type="Node2D"]
@@ -22,6 +35,7 @@ script = ExtResource("1_nde14")
 [node name="patient" type="AnimatedSprite2D" parent="."]
 position = Vector2(902, 400)
 sprite_frames = SubResource("SpriteFrames_gfa6j")
+animation = &"human"
 script = ExtResource("2_6ndxa")
 
 [node name="itembag" type="ItemList" parent="."]
@@ -42,4 +56,5 @@ theme_override_font_sizes/font_size = 48
 text = "placeholder"
 
 [connection signal="complete" from="patient" to="." method="_on_patient_complete"]
+[connection signal="skipped" from="patient" to="." method="_on_patient_skipped"]
 [connection signal="item_clicked" from="itembag" to="itembag" method="_on_item_clicked"]
