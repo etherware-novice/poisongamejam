@@ -1,13 +1,14 @@
-class_name colorItem extends "res://scripts/baseItem.gd"
+class_name colorItem extends baseItem
 
+var color
+var force
 
 # color: a Color object that determines what is added
 # force: bool that overrides the color instead of multiplying
 func _init(name, icon, color, force):
-	self.name = name
-	self.icon = icon
 	self.color = color
 	self.force = force
+	self.displayName = name
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _onUse(target):

@@ -11,22 +11,25 @@ var colors = {
 	}
 
 var itemId = [
-	colorItem.new("Bleach", null, null, true),
-	colorItem.new("Red Dye", null, colors["Red"], false),
-	colorItem.new("Red Paint", null, colors["Red"], true),
-	colorItem.new("Orange Dye", null, colors["Orange"], false),
-	colorItem.new("Orange Paint", null, colors["Orange"], true),
-	colorItem.new("Yellow Dye", null, colors["Yellow"], false),
-	colorItem.new("Yellow Paint", null, colors["Yellow"], true),
-	colorItem.new("Green Dye", null, colors["Green"], false),
-	colorItem.new("Green Paint", null, colors["Green"], true),
-	colorItem.new("Blue Dye", null, colors["Blue"], false),
-	colorItem.new("Blue Paint", null, colors["Blue"], true),
-	colorItem.new("Purple Dye", null, colors["Purple"], false),
-	colorItem.new("Purple Paint", null, colors["Purple"], true),
+	["Bleach", null, null, true],
+	["Red Dye", null, colors["Red"], false],
+	["Red Paint", null, colors["Red"], true],
+	["Orange Dye", null, colors["Orange"], false],
+	["Orange Paint", null, colors["Orange"], true],
+	["Yellow Dye", null, colors["Yellow"], false],
+	["Yellow Paint", null, colors["Yellow"], true],
+	["Green Dye", null, colors["Green"], false],
+	["Green Paint", null, colors["Green"], true],
+	["Blue Dye", null, colors["Blue"], false],
+	["Blue Paint", null, colors["Blue"], true],
+	["Purple Dye", null, colors["Purple"], false],
+	["Purple Paint", null, colors["Purple"], true],
 ]
 
 func getItem(id):
 	if id > itemId.size() - 1:
 		id = 0
-	return itemId[id].duplicate()
+	var itemInfo = itemId[id]
+	var retr = colorItem.new(itemInfo[0], itemInfo[1], itemInfo[2], itemInfo[3])
+	retr.id = id
+	return retr
