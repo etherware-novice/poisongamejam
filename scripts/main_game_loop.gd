@@ -2,6 +2,7 @@ extends Node2D
 
 
 func _ready():
+	player.usedItem.connect(checkEmptyInventory)
 	startRound()
 
 func startRound():
@@ -36,3 +37,8 @@ func _on_patient_skipped():
 	$status.text = "Skipping.."
 	await get_tree().create_timer(3).timeout
 	startRound()
+
+func checkEmptyInventory(_x):
+	if player.inventory.slice(0, 3).max() < 1:
+		$status.text = "Out of items!"
+		player.cutsceneLock = true
