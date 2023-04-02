@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://7ckoiqkd3rug"]
+[gd_scene load_steps=10 format=3 uid="uid://7ckoiqkd3rug"]
 
 [ext_resource type="Script" path="res://scripts/main_game_loop.gd" id="1_8klro"]
 [ext_resource type="Texture2D" uid="uid://cv85bmfxveq2f" path="res://icon.svg" id="2_b61lp"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dn13ooxw267yq" path="res://art/patient_human-001.png" id="4_juudm"]
 [ext_resource type="Script" path="res://scripts/patient.gd" id="5_yuu1u"]
 [ext_resource type="Script" path="res://scripts/itembag.gd" id="6_3u6x2"]
+[ext_resource type="Script" path="res://scripts/workclock.gd" id="7_rbf8a"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gfa6j"]
 animations = [{
@@ -27,6 +28,17 @@ animations = [{
 "loop": true,
 "name": &"human",
 "speed": 2.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sae05"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_b61lp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
 }]
 
 [node name="MainGameLoop" type="Node2D"]
@@ -55,6 +67,18 @@ offset_bottom = 199.0
 theme_override_font_sizes/font_size = 48
 text = "placeholder"
 
+[node name="workclock" type="AnimatedSprite2D" parent="."]
+position = Vector2(593, 545)
+scale = Vector2(5, 1)
+sprite_frames = SubResource("SpriteFrames_sae05")
+script = ExtResource("7_rbf8a")
+
+[node name="hourTick" type="Timer" parent="workclock"]
+wait_time = 10.0
+autostart = true
+
 [connection signal="complete" from="patient" to="." method="_on_patient_complete"]
 [connection signal="skipped" from="patient" to="." method="_on_patient_skipped"]
 [connection signal="item_clicked" from="itembag" to="itembag" method="_on_item_clicked"]
+[connection signal="timeUp" from="workclock" to="." method="_on_workclock_time_up"]
+[connection signal="timeout" from="workclock/hourTick" to="workclock" method="_on_hour_tick_timeout"]

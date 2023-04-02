@@ -46,3 +46,7 @@ func checkEmptyInventory(_x):
 func endDay():
 	player.cutsceneLock = true
 	get_tree().change_scene_to_file("res://scenes/shop.tscn")
+
+
+func _on_workclock_time_up():
+	endDay()
