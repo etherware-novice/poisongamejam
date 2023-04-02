@@ -29,3 +29,5 @@ var renderColor = [
 ]
 
 var itemNames = ["Red Dye", "Green Dye", "Blue Dye", "Bleach", "Skip"]
+
+var fade = load("res://scenes/fade_and_load.tscn")

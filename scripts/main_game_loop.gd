@@ -44,9 +44,12 @@ func checkEmptyInventory(_x):
 		endDay()
 
 func endDay():
+	await get_tree().create_timer(3).timeout
 	player.cutsceneLock = true
-	get_tree().change_scene_to_file("res://scenes/shop.tscn")
+	var wipe = constants.fade.instantiate()
+	wipe.loadScene(self, "res://scenes/shop.tscn")
 
 
 func _on_workclock_time_up():
+	$status.text = "Time up!"
 	endDay()

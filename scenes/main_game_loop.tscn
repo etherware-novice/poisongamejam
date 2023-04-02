@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://7ckoiqkd3rug"]
+[gd_scene load_steps=50 format=3 uid="uid://7ckoiqkd3rug"]
 
 [ext_resource type="Script" path="res://scripts/main_game_loop.gd" id="1_8klro"]
 [ext_resource type="Texture2D" uid="uid://cv85bmfxveq2f" path="res://icon.svg" id="2_b61lp"]
@@ -36,6 +36,10 @@ animations = [{
 "name": &"human",
 "speed": 2.0
 }]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oxbaj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xoeyx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ktaso"]
 atlas = ExtResource("7_xveha")
@@ -338,11 +342,15 @@ script = ExtResource("5_yuu1u")
 
 [node name="itembag" type="ItemList" parent="."]
 clip_contents = false
-offset_left = 54.0
-offset_top = 116.0
-offset_right = 454.0
-offset_bottom = 616.0
-theme_override_font_sizes/font_size = 28
+offset_left = 195.0
+offset_top = 198.0
+offset_right = 595.0
+offset_bottom = 489.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/panel = SubResource("StyleBoxEmpty_oxbaj")
+theme_override_styles/selected_focus = SubResource("StyleBoxEmpty_xoeyx")
 script = ExtResource("6_3u6x2")
 
 [node name="status" type="Label" parent="."]
@@ -386,7 +394,7 @@ animation = &"1"
 script = ExtResource("7_rbf8a")
 
 [node name="hourTick" type="Timer" parent="workclock"]
-wait_time = 5.0
+wait_time = 10.0
 autostart = true
 
 [node name="Tostermk3" type="Sprite2D" parent="."]
@@ -400,7 +408,7 @@ scale = Vector2(0.381836, 0.381836)
 texture = ExtResource("12_rfny8")
 
 [node name="Laamp" type="Sprite2D" parent="."]
-position = Vector2(219, 445)
+position = Vector2(402, 443)
 scale = Vector2(0.44043, 0.44043)
 texture = ExtResource("13_hscr7")
 
