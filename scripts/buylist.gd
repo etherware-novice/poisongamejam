@@ -7,7 +7,7 @@ var dyeStack = 20
 func _ready():
 	player.cutsceneLock = false
 	for x in range(player.inventory.size()):
-		add_item(constants.itemNames[x] + " (" + str(itemCost[x]) + ")")
+		add_item(constants.itemNames[x] + " (" + str(itemCost[x]) + " gold)")
 	updateGold()
 
 

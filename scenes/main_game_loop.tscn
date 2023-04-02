@@ -342,10 +342,10 @@ script = ExtResource("5_yuu1u")
 
 [node name="itembag" type="ItemList" parent="."]
 clip_contents = false
-offset_left = 195.0
-offset_top = 198.0
-offset_right = 595.0
-offset_bottom = 489.0
+offset_left = 265.0
+offset_top = 118.0
+offset_right = 665.0
+offset_bottom = 409.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 24
@@ -394,7 +394,7 @@ animation = &"1"
 script = ExtResource("7_rbf8a")
 
 [node name="hourTick" type="Timer" parent="workclock"]
-wait_time = 10.0
+wait_time = 5.0
 autostart = true
 
 [node name="Tostermk3" type="Sprite2D" parent="."]

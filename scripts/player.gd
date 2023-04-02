@@ -1,9 +1,9 @@
 extends Node
 
 # red dye, green dye, blue dye, bleach, skips
-var inventory = [5, 5, 5, 1, 3]
+var inventory = [5, 5, 5, 1, 10]
 var cutsceneLock
-var bank = 50
+var bank = 0
 
 signal usedItem(index)
 

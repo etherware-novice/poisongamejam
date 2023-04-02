@@ -1,5 +1,6 @@
 extends Node2D
 
+var personsDone = 0
 
 func _ready():
 	player.usedItem.connect(checkEmptyInventory)
@@ -26,6 +27,8 @@ func _process(delta):
 
 func _on_patient_complete():
 	player.cutsceneLock = true
+	player.bank += 10
+	personsDone += 1
 	print("you did it")
 	$status.text = "Good Job!"
 	await get_tree().create_timer(3).timeout
@@ -44,8 +47,27 @@ func checkEmptyInventory(_x):
 		endDay()
 
 func endDay():
-	await get_tree().create_timer(3).timeout
+	if player.cutsceneLock:
+		return
 	player.cutsceneLock = true
+	$workclock.stop()
+	$workclock/hourTick.stop()
+	$workclock.animation = str(1)
+	await get_tree().create_timer(3).timeout
+
+	var tally = str(personsDone) + " people"
+	$status.text = tally
+	await get_tree().create_timer(2).timeout
+	tally += " x 10"
+	$status.text = tally
+	await get_tree().create_timer(2).timeout
+	tally += " = \n"
+	$status.text = tally
+	await get_tree().create_timer(2).timeout
+	tally += str(personsDone * 10) + " gold"
+	$status.text = tally
+
+	await get_tree().create_timer(2).timeout
 	var wipe = constants.fade.instantiate()
 	wipe.loadScene(self, "res://scenes/shop.tscn")
 
