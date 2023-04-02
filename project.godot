@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 constants="*res://scripts/constants.gd"
 player="*res://scripts/player.gd"
 
+[display]
+
+window/stretch/aspect="expand"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
