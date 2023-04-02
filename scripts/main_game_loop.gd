@@ -69,7 +69,7 @@ func endDay():
 
 	await get_tree().create_timer(2).timeout
 	var wipe = constants.fade.instantiate()
-	wipe.loadScene(self, "res://scenes/shop.tscn")
+	wipe.loadScene(self, "res://scenes/intro_cutscene.tscn")
 
 
 func _on_workclock_time_up():

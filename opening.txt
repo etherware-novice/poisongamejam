@@ -1,0 +1,16 @@
+.: BEEP
+Automated Voice: Playing back tape..
+Boss: Hello, and welcome to your new job at the poison hospital!
+Boss: We are so happy that you chose us over the thousands of other jobs.
+Boss: Unfortunately, due to workplace policy, I am unable to meet in person today..
+Boss: or ever.
+Boss: But, we have provided a tape player to recieve messages.
+Boss: We here have been authorized to use an experimental treatment method, known as Saubitacolmical Treatment.
+Boss: It involves using colored.. poisons to treat the guests.
+Boss: While yes, it does have a 98% mortality rate, we do get a lot of money for it.
+Boss: So get out there, and good luck!
+Boss: Also, do stop at the company shop on your way there to buy new vials. We don't provide any.
+.: BEEP
+Automated Voice: Shift starts in
+Automated Voice: 5 Minutes
+.: BEEP
