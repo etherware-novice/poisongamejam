@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://7ckoiqkd3rug"]
+[gd_scene load_steps=45 format=3 uid="uid://7ckoiqkd3rug"]
 
 [ext_resource type="Script" path="res://scripts/main_game_loop.gd" id="1_8klro"]
 [ext_resource type="Texture2D" uid="uid://cv85bmfxveq2f" path="res://icon.svg" id="2_b61lp"]
@@ -8,6 +8,9 @@
 [ext_resource type="Script" path="res://scripts/itembag.gd" id="6_3u6x2"]
 [ext_resource type="Script" path="res://scripts/workclock.gd" id="7_rbf8a"]
 [ext_resource type="Texture2D" uid="uid://nnjdho3v0ysf" path="res://art/workClock.png" id="7_xveha"]
+[ext_resource type="Texture2D" uid="uid://p0aj8io2jo6c" path="res://art/endTable.png" id="9_yn3gi"]
+[ext_resource type="Texture2D" uid="uid://qwq5wof5s27g" path="res://art/table.png" id="10_58mh2"]
+[ext_resource type="Texture2D" uid="uid://wf168t0udt8v" path="res://art/tostermk3.png" id="11_qpb35"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gfa6j"]
 animations = [{
@@ -315,7 +318,7 @@ animations = [{
 script = ExtResource("1_8klro")
 
 [node name="patient" type="AnimatedSprite2D" parent="."]
-position = Vector2(902, 400)
+position = Vector2(922, 239)
 sprite_frames = SubResource("SpriteFrames_gfa6j")
 animation = &"human"
 script = ExtResource("5_yuu1u")
@@ -337,6 +340,30 @@ offset_bottom = 199.0
 theme_override_font_sizes/font_size = 48
 text = "placeholder"
 
+[node name="table" type="HBoxContainer" parent="."]
+offset_left = -63.0
+offset_top = 310.0
+offset_right = 1238.0
+offset_bottom = 668.0
+theme_override_constants/separation = 0
+metadata/_edit_group_ = true
+
+[node name="endLeft" type="TextureRect" parent="table"]
+layout_mode = 2
+size_flags_horizontal = 10
+texture = ExtResource("9_yn3gi")
+
+[node name="table" type="TextureRect" parent="table"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("10_58mh2")
+
+[node name="endRight" type="TextureRect" parent="table"]
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("9_yn3gi")
+flip_h = true
+
 [node name="workclock" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(646, 482)
@@ -348,6 +375,11 @@ script = ExtResource("7_rbf8a")
 [node name="hourTick" type="Timer" parent="workclock"]
 wait_time = 5.0
 autostart = true
+
+[node name="Tostermk3" type="Sprite2D" parent="."]
+position = Vector2(911, 487)
+scale = Vector2(0.333984, 0.333984)
+texture = ExtResource("11_qpb35")
 
 [connection signal="complete" from="patient" to="." method="_on_patient_complete"]
 [connection signal="skipped" from="patient" to="." method="_on_patient_skipped"]
