@@ -36,6 +36,8 @@ func _on_patient_complete():
 
 
 func _on_patient_skipped():
+	if player.cutsceneLock:
+		return
 	player.cutsceneLock = true
 	$status.text = "Skipping.."
 	await get_tree().create_timer(3).timeout
@@ -47,8 +49,6 @@ func checkEmptyInventory(_x):
 		endDay()
 
 func endDay():
-	if player.cutsceneLock:
-		return
 	player.cutsceneLock = true
 	$workclock.stop()
 	$workclock/hourTick.stop()

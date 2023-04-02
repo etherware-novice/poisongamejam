@@ -26,13 +26,13 @@ func _input(event):
 
 func _on_item_clicked(index, at_position, mouse_button_index):
 	var multiple = 1
-	updateGold()
 	if player.cutsceneLock or is_item_disabled(index):
 		return
 	if index < 3:
 		multiple = dyeStack
 	
 	player.bank -= itemCost[index]
+	updateGold()
 	
 	player.inventory[index] = player.inventory[index] + multiple
 	$"../listCurItemAmt".setItemIndex(index)
