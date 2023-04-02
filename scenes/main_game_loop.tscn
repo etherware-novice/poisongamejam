@@ -1,7 +1,8 @@
-[gd_scene load_steps=45 format=3 uid="uid://7ckoiqkd3rug"]
+[gd_scene load_steps=48 format=3 uid="uid://7ckoiqkd3rug"]
 
 [ext_resource type="Script" path="res://scripts/main_game_loop.gd" id="1_8klro"]
 [ext_resource type="Texture2D" uid="uid://cv85bmfxveq2f" path="res://icon.svg" id="2_b61lp"]
+[ext_resource type="Texture2D" uid="uid://kg00agmssjs5" path="res://art/mainWall.png" id="2_cf5tt"]
 [ext_resource type="Texture2D" uid="uid://ui1b1rbipwf2" path="res://art/patient_human0000.png" id="3_j3p6x"]
 [ext_resource type="Texture2D" uid="uid://dn13ooxw267yq" path="res://art/patient_human-001.png" id="4_juudm"]
 [ext_resource type="Script" path="res://scripts/patient.gd" id="5_yuu1u"]
@@ -11,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://p0aj8io2jo6c" path="res://art/endTable.png" id="9_yn3gi"]
 [ext_resource type="Texture2D" uid="uid://qwq5wof5s27g" path="res://art/table.png" id="10_58mh2"]
 [ext_resource type="Texture2D" uid="uid://wf168t0udt8v" path="res://art/tostermk3.png" id="11_qpb35"]
+[ext_resource type="Texture2D" uid="uid://b8rk7d7u12gys" path="res://art/shaneCola.png" id="12_rfny8"]
+[ext_resource type="Texture2D" uid="uid://07u4pphvtdth" path="res://art/laamp.png" id="13_hscr7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gfa6j"]
 animations = [{
@@ -317,8 +320,18 @@ animations = [{
 [node name="MainGameLoop" type="Node2D"]
 script = ExtResource("1_8klro")
 
+[node name="MainWall" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = 3.0
+offset_top = -11.0
+offset_right = 1171.0
+offset_bottom = 654.0
+size_flags_vertical = 3
+texture = ExtResource("2_cf5tt")
+
 [node name="patient" type="AnimatedSprite2D" parent="."]
-position = Vector2(922, 239)
+position = Vector2(959, 357)
+scale = Vector2(1.04297, 1.04297)
 sprite_frames = SubResource("SpriteFrames_gfa6j")
 animation = &"human"
 script = ExtResource("5_yuu1u")
@@ -333,10 +346,10 @@ theme_override_font_sizes/font_size = 28
 script = ExtResource("6_3u6x2")
 
 [node name="status" type="Label" parent="."]
-offset_left = 666.0
-offset_top = 86.0
-offset_right = 1058.0
-offset_bottom = 199.0
+offset_left = 684.0
+offset_top = 167.0
+offset_right = 1076.0
+offset_bottom = 280.0
 theme_override_font_sizes/font_size = 48
 text = "placeholder"
 
@@ -380,6 +393,16 @@ autostart = true
 position = Vector2(911, 487)
 scale = Vector2(0.333984, 0.333984)
 texture = ExtResource("11_qpb35")
+
+[node name="ShaneCola" type="Sprite2D" parent="."]
+position = Vector2(823, 471)
+scale = Vector2(0.381836, 0.381836)
+texture = ExtResource("12_rfny8")
+
+[node name="Laamp" type="Sprite2D" parent="."]
+position = Vector2(219, 445)
+scale = Vector2(0.44043, 0.44043)
+texture = ExtResource("13_hscr7")
 
 [connection signal="complete" from="patient" to="." method="_on_patient_complete"]
 [connection signal="skipped" from="patient" to="." method="_on_patient_skipped"]
