@@ -1,15 +1,32 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxrpeu3i0tn52"]
+[gd_scene load_steps=7 format=3 uid="uid://cxrpeu3i0tn52"]
 
 [ext_resource type="Script" path="res://scripts/buylist.gd" id="1_7n5um"]
+[ext_resource type="Texture2D" uid="uid://bdodovmq8gvfy" path="res://art/shopWall.png" id="1_8hbcx"]
 [ext_resource type="Script" path="res://scripts/listCurItemAmt.gd" id="2_nkqoo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j2p7e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5toe3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0m58m"]
 
 [node name="shop" type="Node2D"]
 
+[node name="shopWall" type="TextureRect" parent="."]
+texture_filter = 1
+offset_right = 1151.0
+offset_bottom = 647.0
+texture = ExtResource("1_8hbcx")
+
 [node name="buylist" type="ItemList" parent="."]
-offset_left = 108.0
-offset_top = 96.0
-offset_right = 550.0
-offset_bottom = 517.0
+offset_left = 86.0
+offset_top = 166.0
+offset_right = 432.0
+offset_bottom = 448.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/panel = SubResource("StyleBoxEmpty_j2p7e")
+theme_override_styles/selected = SubResource("StyleBoxEmpty_5toe3")
+theme_override_styles/selected_focus = SubResource("StyleBoxEmpty_0m58m")
 script = ExtResource("1_7n5um")
 
 [node name="listCurItemAmt" type="CenterContainer" parent="."]
@@ -17,10 +34,10 @@ clip_contents = true
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 586.0
-offset_top = 181.0
-offset_right = 1108.0
-offset_bottom = 471.0
+offset_left = 645.0
+offset_top = 194.0
+offset_right = 1069.0
+offset_bottom = 385.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -59,19 +76,19 @@ theme_override_font_sizes/font_size = 32
 text = "5"
 
 [node name="bank" type="Label" parent="."]
-offset_left = 866.0
-offset_top = 417.0
-offset_right = 982.0
-offset_bottom = 489.0
+offset_left = 784.0
+offset_top = 491.0
+offset_right = 900.0
+offset_bottom = 563.0
 theme_override_font_sizes/font_size = 50
 text = "9999"
 
 [node name="stopshop" type="Button" parent="."]
-offset_left = 162.0
-offset_top = 417.0
-offset_right = 506.0
-offset_bottom = 500.0
-theme_override_font_sizes/font_size = 50
+offset_left = 168.0
+offset_top = 394.0
+offset_right = 344.0
+offset_bottom = 437.0
+theme_override_font_sizes/font_size = 25
 text = "Back to Work!"
 
 [connection signal="item_clicked" from="buylist" to="buylist" method="_on_item_clicked"]

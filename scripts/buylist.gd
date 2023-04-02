@@ -1,7 +1,7 @@
 extends ItemList
 
 var itemCost = [10, 10, 10, 50, 200]
-var dyeStack = 20
+var dyeStack = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -44,4 +44,5 @@ func updateGold():
 
 
 func _on_stopshop_pressed():
-	get_tree().change_scene_to_file("res://scenes/main_game_loop.tscn")
+	var wipe = constants.fade.instantiate()
+	wipe.loadScene(self, "res://scenes/main_game_loop.tscn")
