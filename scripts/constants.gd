@@ -27,3 +27,5 @@ var renderColor = [
 	Color(1, 1, 1), Color.RED, Color.ORANGE, Color.YELLOW, Color.GREEN, Color.LIGHT_SEA_GREEN, 
 	Color.BLUE, Color.DARK_VIOLET, Color.BROWN
 ]
+
+var itemNames = ["Red Dye", "Green Dye", "Blue Dye", "Bleach", "Skip"]

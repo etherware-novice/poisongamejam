@@ -1,17 +1,17 @@
 [gd_scene load_steps=8 format=3 uid="uid://7ckoiqkd3rug"]
 
-[ext_resource type="Texture2D" uid="uid://cv85bmfxveq2f" path="res://icon.svg" id="1_2s1sc"]
-[ext_resource type="Script" path="res://scripts/main_game_loop.gd" id="1_nde14"]
-[ext_resource type="Script" path="res://scripts/patient.gd" id="2_6ndxa"]
-[ext_resource type="Texture2D" uid="uid://ui1b1rbipwf2" path="res://art/patient_human0000.png" id="3_c5mcm"]
-[ext_resource type="Script" path="res://scripts/itembag.gd" id="4_51ai2"]
-[ext_resource type="Texture2D" uid="uid://dn13ooxw267yq" path="res://art/patient_human-001.png" id="4_rbddg"]
+[ext_resource type="Script" path="res://scripts/main_game_loop.gd" id="1_8klro"]
+[ext_resource type="Texture2D" uid="uid://cv85bmfxveq2f" path="res://icon.svg" id="2_b61lp"]
+[ext_resource type="Texture2D" uid="uid://ui1b1rbipwf2" path="res://art/patient_human0000.png" id="3_j3p6x"]
+[ext_resource type="Texture2D" uid="uid://dn13ooxw267yq" path="res://art/patient_human-001.png" id="4_juudm"]
+[ext_resource type="Script" path="res://scripts/patient.gd" id="5_yuu1u"]
+[ext_resource type="Script" path="res://scripts/itembag.gd" id="6_3u6x2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gfa6j"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_2s1sc")
+"texture": ExtResource("2_b61lp")
 }],
 "loop": true,
 "name": &"default",
@@ -19,10 +19,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_c5mcm")
+"texture": ExtResource("3_j3p6x")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_rbddg")
+"texture": ExtResource("4_juudm")
 }],
 "loop": true,
 "name": &"human",
@@ -30,13 +30,13 @@ animations = [{
 }]
 
 [node name="MainGameLoop" type="Node2D"]
-script = ExtResource("1_nde14")
+script = ExtResource("1_8klro")
 
 [node name="patient" type="AnimatedSprite2D" parent="."]
 position = Vector2(902, 400)
 sprite_frames = SubResource("SpriteFrames_gfa6j")
 animation = &"human"
-script = ExtResource("2_6ndxa")
+script = ExtResource("5_yuu1u")
 
 [node name="itembag" type="ItemList" parent="."]
 clip_contents = false
@@ -45,7 +45,7 @@ offset_top = 116.0
 offset_right = 454.0
 offset_bottom = 616.0
 theme_override_font_sizes/font_size = 28
-script = ExtResource("4_51ai2")
+script = ExtResource("6_3u6x2")
 
 [node name="status" type="Label" parent="."]
 offset_left = 666.0

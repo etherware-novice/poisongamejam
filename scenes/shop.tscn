@@ -1,0 +1,78 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxrpeu3i0tn52"]
+
+[ext_resource type="Script" path="res://scripts/buylist.gd" id="1_7n5um"]
+[ext_resource type="Script" path="res://scripts/listCurItemAmt.gd" id="2_nkqoo"]
+
+[node name="shop" type="Node2D"]
+
+[node name="buylist" type="ItemList" parent="."]
+offset_left = 108.0
+offset_top = 96.0
+offset_right = 550.0
+offset_bottom = 517.0
+script = ExtResource("1_7n5um")
+
+[node name="listCurItemAmt" type="CenterContainer" parent="."]
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 586.0
+offset_top = 181.0
+offset_right = 1108.0
+offset_bottom = 471.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("2_nkqoo")
+metadata/_edit_group_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="listCurItemAmt"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 20
+
+[node name="ColorRect" type="ColorRect" parent="listCurItemAmt/MarginContainer"]
+show_behind_parent = true
+layout_mode = 2
+color = Color(0.517647, 0.25098, 0.788235, 1)
+
+[node name="VSplit" type="VSplitContainer" parent="listCurItemAmt/MarginContainer"]
+layout_mode = 2
+split_offset = 2
+dragger_visibility = 1
+
+[node name="name" type="Label" parent="listCurItemAmt/MarginContainer/VSplit"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 64
+text = "Red Dye"
+
+[node name="amt" type="Label" parent="listCurItemAmt/MarginContainer/VSplit"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "5"
+
+[node name="bank" type="Label" parent="."]
+offset_left = 866.0
+offset_top = 417.0
+offset_right = 982.0
+offset_bottom = 489.0
+theme_override_font_sizes/font_size = 50
+text = "9999"
+
+[node name="stopshop" type="Button" parent="."]
+offset_left = 162.0
+offset_top = 417.0
+offset_right = 506.0
+offset_bottom = 500.0
+theme_override_font_sizes/font_size = 50
+text = "Back to Work!"
+
+[connection signal="item_clicked" from="buylist" to="buylist" method="_on_item_clicked"]
+[connection signal="pressed" from="stopshop" to="buylist" method="_on_stopshop_pressed"]
