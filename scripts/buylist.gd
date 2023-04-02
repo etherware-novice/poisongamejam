@@ -1,6 +1,6 @@
 extends ItemList
 
-var itemCost = [10, 10, 10, 50, 200]
+var itemCost = [10, 10, 10, 40, 40]
 var dyeStack = 10
 
 # Called when the node enters the scene tree for the first time.
