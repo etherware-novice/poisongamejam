@@ -44,5 +44,7 @@ func updateGold():
 
 
 func _on_stopshop_pressed():
+	$"../clerk".play("default")
+	await get_tree().create_timer(0.2).timeout
 	var wipe = constants.fade.instantiate()
 	wipe.loadScene(self, "res://scenes/main_game_loop.tscn")

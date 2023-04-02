@@ -1,14 +1,42 @@
-[gd_scene load_steps=7 format=3 uid="uid://cxrpeu3i0tn52"]
+[gd_scene load_steps=13 format=3 uid="uid://cxrpeu3i0tn52"]
 
 [ext_resource type="Script" path="res://scripts/buylist.gd" id="1_7n5um"]
 [ext_resource type="Texture2D" uid="uid://bdodovmq8gvfy" path="res://art/shopWall.png" id="1_8hbcx"]
 [ext_resource type="Script" path="res://scripts/listCurItemAmt.gd" id="2_nkqoo"]
+[ext_resource type="Texture2D" uid="uid://syt3hr7amuxi" path="res://art/clerkWave0000.png" id="4_kh6v4"]
+[ext_resource type="Texture2D" uid="uid://phrewrlp60as" path="res://art/clerkWave0004.png" id="5_clglj"]
+[ext_resource type="Texture2D" uid="uid://22p0ir56jvy5" path="res://art/clerkWave0006.png" id="6_fyv1k"]
+[ext_resource type="Texture2D" uid="uid://c34cbjmh1dao7" path="res://art/clerkWave0008.png" id="7_v3fgq"]
+[ext_resource type="Texture2D" uid="uid://fsye7fs31svv" path="res://art/clerkWave0010.png" id="8_rtby8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j2p7e"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5toe3"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0m58m"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dsm7j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_kh6v4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_clglj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fyv1k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_v3fgq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_rtby8")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="shop" type="Node2D"]
 
@@ -90,6 +118,11 @@ offset_right = 344.0
 offset_bottom = 437.0
 theme_override_font_sizes/font_size = 25
 text = "Back to Work!"
+
+[node name="clerk" type="AnimatedSprite2D" parent="."]
+position = Vector2(880, 370)
+scale = Vector2(0.49707, 0.49707)
+sprite_frames = SubResource("SpriteFrames_dsm7j")
 
 [connection signal="item_clicked" from="buylist" to="buylist" method="_on_item_clicked"]
 [connection signal="pressed" from="stopshop" to="buylist" method="_on_stopshop_pressed"]
