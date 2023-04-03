@@ -10,4 +10,4 @@ func _ready():
 
 func _on_start_button_pressed():
 	var wipe = constants.fade.instantiate()
-	wipe.loadScene(self, "res://scenes/main_game_loop.tscn")
+	wipe.loadScene(self, "res://scenes/intro_cutscene.tscn")
