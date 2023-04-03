@@ -18,14 +18,7 @@ func _ready():
 			continue # invalid line, skip
 		await writeText(line[0], line[1]).finished
 		await self.click
-		
-	f.close()
-	$AnimationPlayer.play_backwards("open")
-	$box/speaker.visible_ratio = 0
-	$box/Label.visible_ratio = 0
-	await $AnimationPlayer.animation_finished
-	var wipe = constants.fade.instantiate()
-	wipe.loadScene(self, "res://scenes/shop.tscn")
+	close()
 
 func writeText(speaker, line):
 	var tweener := create_tween()
@@ -43,9 +36,22 @@ func writeText(speaker, line):
 	
 	return tweener
 
+func close():
+	f.close()
+	$AnimationPlayer.play_backwards("open")
+	$box/speaker.visible = false
+	$box/Label.visible = false
+	await $AnimationPlayer.animation_finished
+	var wipe = constants.fade.instantiate()
+	wipe.loadScene(self, "res://scenes/shop.tscn")
+	
 
 func _input(event):
 	#fancy way of testing for a mouse click
 	if event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT && event.pressed:
 		emit_signal("click")
 		
+
+
+func _on_skip_pressed():
+	close()

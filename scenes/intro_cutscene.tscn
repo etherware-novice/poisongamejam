@@ -85,3 +85,13 @@ visible_ratio = 0.0
 libraries = {
 "": SubResource("AnimationLibrary_6yxj3")
 }
+
+[node name="skip" type="Button" parent="."]
+offset_left = 901.0
+offset_top = 385.0
+offset_right = 1005.0
+offset_bottom = 460.0
+theme_override_font_sizes/font_size = 48
+text = "Skip"
+
+[connection signal="pressed" from="skip" to="." method="_on_skip_pressed"]
