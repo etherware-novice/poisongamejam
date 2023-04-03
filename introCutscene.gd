@@ -5,14 +5,33 @@ var f
 
 signal click
 
+
+var dialogue = [
+	[null, "BEEP"],
+	["Automated Voice", "Playing back tape.."],
+	["Boss", "Hello, and welcome to your new job at the poison hospital!"],
+	["Boss", "We are so happy that you chose us over the thousands of other jobs."],
+	["Boss", "Unfortunately, due to workplace policy, I am unable to meet in person today.."],
+	["Boss", "or ever."],
+	["Boss", "But, we have provided a tape player to recieve messages."],
+	["Boss", "We here have been authorized to use an experimental treatment method, known as Saubitacolmical Treatment."],
+	["Boss", "It involves using colored.. poisons to treat the guests."],
+	["Boss", "While yes, it does have a 98% mortality rate, we do get a lot of money for it."],
+	["Boss", "So get out there, and good luck!"],
+	["Boss", "Also, do stop at the company shop on your way there to buy new vials. We don't provide any."],
+	[null, "BEEP"],
+	["Automated Voice", "Shift starts in"],
+	["Automated Voice", "5 Minutes"],
+	[null, "BEEP"]
+]
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AnimationPlayer.play("open")
 	await $AnimationPlayer.animation_finished
-	f = FileAccess.open("res://opening.txt", FileAccess.READ)
 	
-	while not f.eof_reached():
-		var line = f.get_line().split(":", false, 1)
+	for line in dialogue:
 		print(line)
 		if line.size() < 2:
 			continue # invalid line, skip
