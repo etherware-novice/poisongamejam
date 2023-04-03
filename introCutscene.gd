@@ -56,7 +56,6 @@ func writeText(speaker, line):
 	return tweener
 
 func close():
-	f.close()
 	$AnimationPlayer.play_backwards("open")
 	$box/speaker.visible = false
 	$box/Label.visible = false
